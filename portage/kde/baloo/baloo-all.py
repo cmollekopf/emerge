@@ -2,7 +2,7 @@ import info
 
 class subinfo( info.infoclass ):
     def setTargets( self ):
-        self.svnTargets['gitHEAD'] = '[git]https://github.com/kolab-groupware/baloo|kolab/integration/4.13.0|'
+        self.svnTargets['gitHEAD'] = '[git]https://git.kolab.org/diffusion/KB/baloo.git|kolab/integration/4.13.0|'
         self.shortDescription = "the next generation nepomuk"
         self.defaultTarget = 'gitHEAD'
 

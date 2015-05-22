@@ -5,15 +5,15 @@ from Package.CMakePackageBase import *
 
 class subinfo(info.infoclass):
     def setTargets( self ):
-        for ver in [ '0.4.1', '0.5.0', '0.5.2' ]:
+        for ver in [ '0.4.1', '0.5.0' ]:
             self.targets[ ver ] = 'http://git.kolab.org/libkolab/snapshot/libkolab-' + ver + '.tar.gz'
             self.targetInstSrc[ ver ] = "libkolab-" + ver
         self.patchToApply['0.4.1'] = [("libkolab-fixes.diff", 1)]
         self.patchToApply['0.5.0'] = [("libkolab-0.5.0-fixes.diff", 1)]
-        self.patchToApply['0.5.2'] = [("libkolab-0.5.2-fixes.diff", 1)]
+        self.svnTargets['gitHEAD'] = '[git]http://git.kolab.org/libkolab'
 
         self.shortDescription = ''
-        self.defaultTarget = '0.5.2'
+        self.defaultTarget = 'gitHEAD'
 
     def setDependencies( self ):
         self.buildDependencies['virtual/base'] = 'default'

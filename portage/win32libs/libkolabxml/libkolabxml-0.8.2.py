@@ -8,12 +8,14 @@ class subinfo(info.infoclass):
         for ver in [ '0.8.2', '0.8.4','1.0.1']:
             self.targets[ ver ] = 'http://git.kolab.org/libkolabxml/snapshot/libkolabxml-' + ver + '.tar.gz'
             self.targetInstSrc[ ver ] = "libkolabxml-" + ver
+        self.svnTargets['gitHEAD'] = '[git]http://git.kolab.org/libkolabxml'
         self.patchToApply['0.8.2'] = [("libkolabxml-fixes.diff", 1)]
         self.patchToApply['0.8.4'] = [("libkolabxml-fixes.diff", 1)]
         self.patchToApply['1.0.1'] = [("libkolabxml-1.0.1-fixes.diff", 1)]
+        self.patchToApply['gitHEAD'] = [("libkolabxml-1.0.1-fixes.diff", 1)]
 
         self.shortDescription = 'Kolab XML Format Schema Definitions Library'
-        self.defaultTarget = '1.0.1'
+        self.defaultTarget = 'gitHEAD'
 
     def setDependencies( self ):
         self.buildDependencies['virtual/base'] = 'default'

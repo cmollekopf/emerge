@@ -3,7 +3,7 @@ import kdedefaults as kd
 
 class subinfo(info.infoclass):
     def setTargets( self ):
-        self.svnTargets['gitHEAD'] = '[git]kde:%s|%s|' % (self.package, kd.kdebranch)
+        self.svnTargets['gitHEAD'] = '[git]https://github.com/kolab-groupware/kdepim-runtime|kolab/integration/4.13.0|'
         for ver in ['0', '1', '2', '3', '4', '5']:
             self.targets[kd.kdeversion + ver] = "http://download.kde.org/stable/" + kd.kdeversion + ver + "/src/" + self.package + "-" + kd.kdeversion + ver + ".tar.xz"
             self.targetInstSrc[kd.kdeversion + ver] = self.package + '-' + kd.kdeversion + ver
@@ -27,6 +27,7 @@ class subinfo(info.infoclass):
         self.dependencies['extragear/libkolab'] = 'default'
         self.dependencies['extragear/libkgapi'] = 'default'
         self.dependencies['extragear/libkfbapi'] = 'default'
+        self.dependencies['win32libs/libcurl'] = 'default'
         self.shortDescription = "Extends the functionality of kdepim"
 
 from Package.CMakePackageBase import *

@@ -5,17 +5,18 @@ from Package.CMakePackageBase import *
 
 class subinfo(info.infoclass):
     def setTargets( self ):
-        for ver in [ '0.8.2', '0.8.4','1.0.1']:
-            self.targets[ ver ] = 'http://git.kolab.org/libkolabxml/snapshot/libkolabxml-' + ver + '.tar.gz'
+        for ver in [ '0.8.2', '0.8.4','1.0.1','1.1.0']:
+            self.targets[ ver ] = 'http://mirror.kolabsys.com/pub/releases/libkolabxml-' + ver + '.tar.gz'
             self.targetInstSrc[ ver ] = "libkolabxml-" + ver
-        self.svnTargets['gitHEAD'] = '[git]http://git.kolab.org/libkolabxml'
+        self.svnTargets['gitHEAD'] = '[git]http://git.kolab.org/diffusion/LKX/libkolabxml'
         self.patchToApply['0.8.2'] = [("libkolabxml-fixes.diff", 1)]
         self.patchToApply['0.8.4'] = [("libkolabxml-fixes.diff", 1)]
         self.patchToApply['1.0.1'] = [("libkolabxml-1.0.1-fixes.diff", 1)]
+        self.patchToApply['1.1.0'] = [("libkolabxml-1.0.1-fixes.diff", 1)]
         self.patchToApply['gitHEAD'] = [("libkolabxml-1.0.1-fixes.diff", 1)]
 
         self.shortDescription = 'Kolab XML Format Schema Definitions Library'
-        self.defaultTarget = 'gitHEAD'
+        self.defaultTarget = '1.1.0'
 
     def setDependencies( self ):
         self.buildDependencies['virtual/base'] = 'default'

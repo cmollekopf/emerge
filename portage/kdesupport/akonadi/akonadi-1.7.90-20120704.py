@@ -17,7 +17,7 @@ class subinfo(info.infoclass):
         self.svnTargets['gitHEAD'] = '[git]http://git.kolab.org/diffusion/A/akonadi|kolab/integration/1.12.0|'
         self.shortDescription = "a storage service for PIM data and meta data"
         self.defaultTarget = 'gitHEAD'
-        self.patchToApply['gitHEAD'] = [("akonadi-kde.conf-fix-1.10.80.diff", 1)]
+        # self.patchToApply['gitHEAD'] = [("akonadi-kde.conf-fix-1.10.80.diff", 1)]
 
 from Package.CMakePackageBase import *
 

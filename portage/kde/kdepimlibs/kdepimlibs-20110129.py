@@ -33,6 +33,8 @@ class Package(CMakePackageBase):
         self.boost = portage.getPackageInstance('win32libs','boost')
         path = self.boost.installDir()
         os.putenv( "BOOST_ROOT", path )
+        self.subinfo.options.configure.defines = ""
+        self.subinfo.options.configure.defines += " -DKDE4_BUILD_TESTS=OFF"
 
 if __name__ == '__main__':
     Package().execute()

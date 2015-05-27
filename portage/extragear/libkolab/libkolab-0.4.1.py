@@ -9,7 +9,7 @@ class subinfo(info.infoclass):
             self.targets[ ver ] = 'http://mirror.kolabsys.com/pub/releases/libkolab-' + ver + '.tar.gz'
             self.targetInstSrc[ ver ] = "libkolab-" + ver
         self.patchToApply['0.4.1'] = [("libkolab-fixes.diff", 1)]
-        self.patchToApply['0.5.0'] = [("libkolab-0.5.0-fixes.diff", 1)]
+        # self.patchToApply['0.5.0'] = [("libkolab-0.5.0-fixes.diff", 1)]
         self.svnTargets['gitHEAD'] = '[git]http://git.kolab.org/diffusion/LK/libkolab'
 
         self.shortDescription = ''
@@ -31,7 +31,7 @@ class Package(CMakePackageBase):
     def __init__( self, **args ):
         self.subinfo = subinfo()
         CMakePackageBase.__init__( self )
-        self.subinfo.options.configure.defines = "-DBUILD_TESTS=OFF"
+        self.subinfo.options.configure.defines = "-DBUILD_TESTS=OFF -DBUILD_TOOLS=OFF"
 
 if __name__ == '__main__':
     Package().execute()

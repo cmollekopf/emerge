@@ -10,6 +10,7 @@ class subinfo( info.infoclass ):
         self.dependencies['kde/kdelibs'] = 'default'
         self.dependencies['kde/kdepimlibs'] = 'default'
         self.dependencies['kde/kfilemetadata'] = 'default'
+        self.dependencies['testing/xapian'] = 'default'
 
 from Package.CMakePackageBase import *
 

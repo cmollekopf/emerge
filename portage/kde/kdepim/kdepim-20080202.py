@@ -32,6 +32,8 @@ class Package( CMakePackageBase ):
     def __init__( self ):
         self.subinfo = subinfo()
         CMakePackageBase.__init__( self )
+        self.subinfo.options.configure.defines = ""
+        self.subinfo.options.configure.defines += " -DKDE4_BUILD_TESTS=OFF -DKDEPIM_BUILD_MOBILE=FALSE -DBUILD_blogilo=FALSE -DBUILD_akregator=FALSE"
 
 if __name__ == '__main__':
     Package().execute()

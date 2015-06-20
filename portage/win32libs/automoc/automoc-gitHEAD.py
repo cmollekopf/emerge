@@ -10,7 +10,7 @@ class subinfo( info.infoclass ):
         for ver in ['20130507']:
             self.targets[ ver ] = "http://www.winkde.org/pub/kde/ports/win32/repository/other/automoc-" + ver + ".tar.xz"
             self.targetInstSrc[ ver ] = "automoc-" + ver
-        self.defaultTarget = '20130507'
+        self.defaultTarget = 'gitHEAD'
 
     def setBuildOptions( self ):
         self.disableHostBuild = False
@@ -22,7 +22,7 @@ class Package( CMakePackageBase ):
     def __init__( self ):
         self.subinfo = subinfo()
         CMakePackageBase.__init__( self )
-        self.subinfo.options.package.version = "20130507"
+        #self.subinfo.options.package.version = "20130507"
 
 if __name__ == '__main__':
     Package().execute()

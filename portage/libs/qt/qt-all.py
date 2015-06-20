@@ -60,7 +60,7 @@ class subinfo(info.infoclass):
 
         self.shortDescription = "a cross-platform application framework"
         # If you change the default target here please do not forget to rename the portage file
-        self.defaultTarget = '4.8.5'
+        self.defaultTarget = 'master'
 
         ## \todo this is prelimary  and may be changed
         self.options.package.packageName = 'qt'
@@ -145,6 +145,8 @@ class Package(QMakePackageBase):
             command += "-no-ltcg "
         else:
             command += "-ltcg "
+
+        command += "-webkit "
 
         # all builds
         command += "-no-phonon "

@@ -5,7 +5,7 @@ class subinfo(info.infoclass):
     def setTargets( self ):
 #        self.patchToApply['gitHEAD'] = [("kde.conf-extended-fix.diff", 1),
 #                                        ("fix-dir-separator.diff", 1)]
-        self.svnTargets['gitHEAD'] = '[git]http://git.kolab.org/diffusion/KL/kdelibs|kolab/integration/4.14.0|'
+        self.svnTargets['gitHEAD'] = '[git]http://git.kolab.org/diffusion/KL/kdelibs|kolab/dev/windows|'
         self.shortDescription = "The KDE Library"
         self.defaultTarget = 'gitHEAD'
 

@@ -15694,6 +15694,9 @@ SetOutPath "$INSTDIR\etc\dbus-1\system.d"
 File "${DIST_DIR}/etc/dbus-1/system.d/org.kde.auth.conf"
 File "${DIST_DIR}/etc/dbus-1/system.d/org.kde.kcontrol.kcmremotewidgets.conf"
 
+SetOutPath "$INSTDIR\etc\dbus-1\session.d"
+File "${DIST_DIR}/etc/dbus-1/session.d/dummy.txt"
+
 SetOutPath "$INSTDIR\database"
 File "${DIST_DIR}/database/virtuoso.ini"
 

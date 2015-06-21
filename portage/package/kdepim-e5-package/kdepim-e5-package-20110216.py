@@ -24,6 +24,7 @@ class subinfo( info.infoclass ):
         self.dependencies[ 'kde/kdepim-runtime' ] = 'default'
         self.dependencies[ 'kde/kdepim' ] = 'default'
         self.dependencies[ 'kde/kde-l10n-de' ] = 'default'
+        self.dependencies[ 'extragear/zanshin' ] = 'default'
 
 class Package( NullsoftInstallerPackager, VirtualPackageBase ):
     def __init__( self, **args ):

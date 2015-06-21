@@ -3,12 +3,12 @@ import info
 
 class subinfo( info.infoclass ):
     def setTargets( self ):
-        for ver in ['4.13.0', '4.13.1', '4.13.2', '4.13.3', '4.13.4']:
+        for ver in ['4.13.0', '4.13.1', '4.13.2', '4.13.3']:
           self.targets[ ver] = 'http://download.kde.org/stable/%s/src/kde-l10n/kde-l10n-de-%s.tar.xz' % (ver , ver )
           self.targetInstSrc[ ver] = 'kde-l10n-de-%s'  % ver
         self.svnTargets['4.13.0.0'] = '[git]https://github.com/kolab-groupware/kde-l10n-de.git|kolab/integration/4.13.0|'
 
-        self.defaultTarget = '4.13.0.0'
+        self.defaultTarget = '4.13.3'
 
 
     def setDependencies( self ):

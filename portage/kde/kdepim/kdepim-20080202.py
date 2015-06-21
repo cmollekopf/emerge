@@ -33,7 +33,14 @@ class Package( CMakePackageBase ):
         self.subinfo = subinfo()
         CMakePackageBase.__init__( self )
         self.subinfo.options.configure.defines = ""
-        self.subinfo.options.configure.defines += " -DKDE4_BUILD_TESTS=OFF -DKDEPIM_BUILD_MOBILE=FALSE -DBUILD_blogilo=FALSE -DBUILD_akregator=FALSE"
+        self.subinfo.options.configure.defines += " -DKDE4_BUILD_TESTS=OFF"
+        self.subinfo.options.configure.defines += ( " -DKDEPIM_BUILD_MOBILE=FALSE -DKDEPIM_MOBILE_UI=FALSE -DDISABLE_ALL_OPTIONAL_SUBDIRECTORIES=TRUE"
+                  " -DBUILD_korganizer=TRUE -DBUILD_kmail=TRUE -DBUILD_korgac=TRUE -DBUILD_kaddressbook=TRUE"
+                  " -DBUILD_kontact=TRUE -DBUILD_kaddressbook=TRUE -DBUILD_doc=TRUE -DBUILD_akonadiconsole=TRUE"
+                  " -DBUILD_messagecomposer=TRUE -DBUILD_mailimporter=TRUE -DBUILD_sieveeditor=TRUE -DBUILD_importwizard=TRUE"
+                  " -DBUILD_agents=TRUE -DBUILD_sendlateragent=TRUE -DBUILD_archivemailagent=TRUE -DBUILD_mailfilteragent=TRUE"
+                  " -DBUILD_kleopatra=TRUE -DDISABLE_ALL_OPTIONAL_PLUGINS=TRUE" )
+
 
 if __name__ == '__main__':
     Package().execute()

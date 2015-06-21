@@ -36,6 +36,8 @@ class Package( CMakePackageBase ):
     def __init__( self ):
         self.subinfo = subinfo()
         CMakePackageBase.__init__( self )
+        self.subinfo.options.configure.defines = ""
+        self.subinfo.options.configure.defines += " -DDISABLE_ALL_OPTIONAL_SUBDIRECTORIES=TRUE -DBUILD_kolab=TRUE -DBUILD_mixedmaildir=TRUE -DBUILD_maildir=TRUE"
 
     def install( self ):
         if not CMakePackageBase.install( self ):

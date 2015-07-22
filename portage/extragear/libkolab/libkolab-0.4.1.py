@@ -10,7 +10,7 @@ class subinfo(info.infoclass):
             self.targetInstSrc[ ver ] = "libkolab-" + ver
         self.patchToApply['0.4.1'] = [("libkolab-fixes.diff", 1)]
         # self.patchToApply['0.5.0'] = [("libkolab-0.5.0-fixes.diff", 1)]
-        self.svnTargets['gitHEAD'] = '[git]http://git.kolab.org/diffusion/LK/libkolab'
+        self.svnTargets['gitHEAD'] = '[git]http://git.kolab.org/diffusion/LK/libkolab|dev/windows-0.6'
 
         self.shortDescription = ''
         self.defaultTarget = 'gitHEAD'

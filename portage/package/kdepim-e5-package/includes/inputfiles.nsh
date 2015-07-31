@@ -4479,6 +4479,7 @@ File "${DIST_DIR}/share/locale/de/LC_MESSAGES/wordkubes.mo"
 File "${DIST_DIR}/share/locale/de/LC_MESSAGES/xesamclientexample.mo"
 File "${DIST_DIR}/share/locale/de/LC_MESSAGES/xml_mimetypes.mo"
 File "${DIST_DIR}/share/locale/de/LC_MESSAGES/yakuake.mo"
+File "${DIST_DIR}/share/locale/de/LC_MESSAGES/zanshin.mo"
 
 SetOutPath "$INSTDIR\share\locale\currency"
 File "${DIST_DIR}/share/locale/currency/adf.desktop"

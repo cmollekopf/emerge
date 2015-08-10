@@ -629,8 +629,8 @@ diff -Nru -x '*~' gpgme-1.4.3.orig/CMakeLists.txt gpgme-1.4.3/CMakeLists.txt
 +set(NEED__FILE_OFFSET_BITS 0)
 +set(NEED_GPG_VERSION "\"2.0.17\"")
 +set(NEED_G13_VERSION "\"\"")
-+set(NEED_GPGCONF_VERSION "\"\"")
-+set(NEED_GPGSM_VERSION "\"\"")
++set(NEED_GPGCONF_VERSION "\"2.0.4\"")
++set(NEED_GPGSM_VERSION "\"1.9.6\"")
 +set(PACKAGE_BUGREPORT "\"kde-windows@kde.org\"")
 +set(PACKAGE_NAME "\"GnuPG made easy\"")
 +set(PACKAGE_STRING "\"${PACKAGE}-${VERSION2}\"")
@@ -852,10 +852,10 @@ diff -Nru -x '*~' gpgme-1.4.3.orig/config.h.cmake gpgme-1.4.3/config.h.cmake
 +#cmakedefine G13_PATH
 +
 +/* Path to the GPGCONF binary. */
-+#cmakedefine GPGCONF_PATH
++#define GPGCONF_PATH "C:\\Program Files (x86)\\GNU\\GnuPG\\gpgconf.exe"
 +
 +/* Path to the GPGSM binary. */
-+#cmakedefine GPGSM_PATH
++#define GPGSM_PATH "C:\\Program Files (x86)\\GNU\\GnuPG\\gpgsm.exe"
 +
 +/* The default error source for GPGME. */
 +#cmakedefine GPG_ERR_SOURCE_DEFAULT

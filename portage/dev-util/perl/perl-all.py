@@ -43,7 +43,10 @@ class subinfo(info.infoclass):
            self.targets['5.20.1'] = "http://downloads.activestate.com/ActivePerl/releases/5.20.1.2000/ActivePerl-5.20.1.2000-MSWin32-x86-64int-298557.zip"
            self.targetDigests['5.20.1'] = '75e2b0c635e16693e2146fed65ba5e98d387a2bd'
            self.targetMergeSourcePath['5.20.1'] = "ActivePerl-5.20.1.2000-MSWin32-x86-64int-298557\\perl"
-        self.defaultTarget = '5.20.1'
+           self.targets['5.20.2'] = "http://downloads.activestate.com/ActivePerl/releases/5.20.2.2001/ActivePerl-5.20.2.2001-MSWin32-x86-64int-298913.zip"
+           self.targetDigests['5.20.2'] = '5b51bbb4e06c0850dfe76814e775224ee235dcbb'
+           self.targetMergeSourcePath['5.20.2'] = "ActivePerl-5.20.2.2001-MSWin32-x86-64int-298913\\perl"
+        self.defaultTarget = '5.20.2'
     def setDependencies( self ):
         self.buildDependencies['virtual/bin-base'] = 'default'
 

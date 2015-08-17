@@ -240,6 +240,12 @@ call CreateGlobals
   FileWrite $1 "XDG_DATA_HOME=%APPDATA%\\.kontact\\.local\\share$\r$\n"
   FileClose $1
 
+  CreateDirectory "$INSTDIR\etc\dbus-1\session.d"
+  ; Create a dummy file so the directory get's created. Perhaps the line above would also be enough
+  FileOpen $1 "$INSTDIR\etc\dbus-1\session.d\dummy.txt" "w"
+  FileWrite $1 'This is a dummy file so the directory gets created. $\r$\n'
+  FileClose $1
+
   SetShellVarContext current
   CreateDirectory "$APPDATA\.kontact\share\config"
   CreateDirectory "$APPDATA\.kontact\share\apps\kwallet"

@@ -120,7 +120,6 @@ Section ""
   ; assume files are in the correct places
 
   File /a /r /x "*.nsi" /x "${setupname}" "${srcdir}\*"
-   #!include "includes/inputfiles.nsh"
 
   ; Create uninstaller
   WriteUninstaller "$INSTDIR\Uninstall.exe"

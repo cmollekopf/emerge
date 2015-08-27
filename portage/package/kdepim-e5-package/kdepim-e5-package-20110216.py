@@ -38,9 +38,9 @@ class Package( NullsoftInstallerPackager, VirtualPackageBase ):
         self.defines[ "executable" ] = "bin\\kontact.exe"
         self.defines[ "company" ] = os.getenv("EMERGE_COMPANY_NAME") or "KDE"
         self.defines[ "productname" ] = os.getenv("EMERGE_PRODUCT_NAME") or \
-                                        "Kontact Enterprise 5"
+                                        "Kontact Enterprise 14"
         self.defines[ "setupname" ] = os.getenv("EMERGE_SETUP_NAME") or \
-                                       "Kontact-E5"
+                                       "Kontact-E14"
         self.defines[ "setupname" ] = self.defines[ "setupname" ]+ "-%s.exe" % \
                                        time.strftime("%Y-%m-%d-%H-%M")
         self.defines[ "license" ] = os.getenv("EMERGE_LICENSE_FILE") or \
@@ -52,9 +52,9 @@ class Package( NullsoftInstallerPackager, VirtualPackageBase ):
              "Copyright (c) 2001-%s Kontact Authors" % \
                 time.strftime("%Y")
         self.defines[ "productname_short" ] = os.getenv("EMERGE_PRODUCT_SHORTNAME") or \
-                                              "Kontact E5"
+                                              "Kontact E14"
         self.defines[ "description" ] = os.getenv("EMERGE_DESCRIPTION") or \
-                                        "Kontact Enterprise 5 (beta)"
+                                        "Kontact Enterprise 14"
         # Version Number needs to be in the format x.x.x.x
         self.defines[ "version_number" ] = "4.13.0.0"
         self.defines[ "version_date" ] = time.strftime("%Y-%m-%d-%H-%M")

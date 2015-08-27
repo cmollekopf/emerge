@@ -336,9 +336,9 @@ Function CheckExistingVersion
     MessageBox MB_YESNO|MB_ICONEXCLAMATION "${productname_short} \
     $(T_AlreadyInstalled)" IDYES uninstall IDNO abort_install
   checkkolabe5rc:
-  ReadRegStr $0 HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Kolab E5RC" "UninstallString"
+  ReadRegStr $0 HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Kontact E5" "UninstallString"
   IfErrors overwrite 0
-    MessageBox MB_YESNO|MB_ICONEXCLAMATION "${productname_short} \
+    MessageBox MB_YESNO|MB_ICONEXCLAMATION "Kontact E5 \
     $(T_AlreadyInstalled)" IDYES uninstall IDNO abort_install
 
   abort_install:

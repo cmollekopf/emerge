@@ -4,7 +4,7 @@ import kdedefaults as kd
 class subinfo(info.infoclass):
 
     def setTargets( self ):
-        self.svnTargets['svnHEAD'] = 'trunk/kdesupport/oxygen-icons'
+        self.svnTargets['svnHEAD'] = 'git://anongit.kde.org/oxygen-icons.git'
         for ver in ['0', '1', '2', '3', '4', '5']:
             self.targets[kd.kdeversion + ver] = "http://download.kde.org/stable/" + kd.kdeversion + ver + "/src/" + self.package + "-" + kd.kdeversion + ver + ".tar.xz"
             self.targetInstSrc[kd.kdeversion + ver] = self.package + '-' + kd.kdeversion + ver

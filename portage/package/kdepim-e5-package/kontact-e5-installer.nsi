@@ -56,6 +56,8 @@
   OutFile "${setupname}"
   InstallDir "$PROGRAMFILES\${productname_short}"
 
+  RequestExecutionLevel admin
+
 ;--------------------------------
 ;Interface Settings
 
@@ -109,6 +111,9 @@
 Section ""
   SetOutPath "$INSTDIR"
 
+  ; Write to 64bit version of registry
+  SetRegView 64
+
   ; Store installation folder
   WriteRegStr HKLM "Software\${productname_short}" "" $INSTDIR
 
@@ -131,6 +136,8 @@ Section ""
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${productname_short}" "UninstallString" '"$INSTDIR\uninstall.exe"'
   WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${productname_short}" "NoModify" 1
   WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${productname_short}" "NoRepair" 1
+  ; Register autostart of korgac
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Run\" "korgac" '"$PROGRAMFILES\${productname_short}\bin\korgac.exe"'
 
   ; Set Path to $PROFILE (default for ShortCut run in option -> default for Kowi file open dialog)
   SetOutPath "%HOMEDRIVE%%HOMEPATH%"
@@ -469,6 +476,9 @@ Section "un."
 #  Delete "$DESKTOP\Akonadiconsole.lnk"
   ; Delete Quick Launch Link
   Delete "$QUICKLAUNCH\${productname_short}.lnk"
+
+  ; Write to 64bit version of registry
+  SetRegView 64
   
   ; Delete default mail client entry (Registry entries)
   DeleteRegKey HKLM "Software\Clients\Mail\${productname_short}" 
@@ -478,6 +488,8 @@ Section "un."
   ; Reset default mail client
   WriteRegStr HKLM "Software\Clients\Mail" "" ""
 
+  ; Remove korgac from autostart
+  DeleteRegValue HKLM "Software\Microsoft\Windows\CurrentVersion\Run\" "korgac"
 
   ; Delete registry keys (if NO other installation exists)
   ReadRegStr $0 HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${productname_short}" "Displayversion_number"

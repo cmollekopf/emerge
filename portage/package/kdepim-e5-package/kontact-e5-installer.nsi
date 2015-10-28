@@ -107,6 +107,22 @@
 
 ;--------------------------------
 ;Installer Sections
+; These are the programes that are needed by Kontact
+; Note that you will require to manually download the executables and create the Prerequisites directory in the kderoot directory.
+; Also, the kderoot directory must be mounted as R:
+Section -Prerequisites
+  SetOutPath $INSTDIR\Prerequisites
+  MessageBox MB_YESNO "Install GPG4WIN?" /SD IDYES IDNO endGpg4Win
+    File "R:\\Prerequisites\gpg4win-vanilla-2.2.0.exe"
+    ExecWait "$INSTDIR\Prerequisites\gpg4win-vanilla-2.2.0.exe"
+    Goto endGpg4Win
+  endGpg4Win:
+  MessageBox MB_YESNO "Install Visual Studio Redistributable 2013?" /SD IDYES IDNO endVcRedist2013x86
+    File "R:\\Prerequisites\vcredist_x86.exe"
+    ExecWait "$INSTDIR\Prerequisites\vcredist_x86.exe"
+    Goto endVcRedist2013x86
+  endVcRedist2013x86:
+SectionEnd
 
 Section ""
   SetOutPath "$INSTDIR"

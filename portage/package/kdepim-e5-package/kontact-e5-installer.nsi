@@ -275,7 +275,7 @@ call CreateGlobals
 
   FileOpen $1 "$APPDATA\.kontact\share\config\kwalletrc" "w"
   FileWrite $1 "[Auto Allow]$\r$\n"
-  FileWrite $1 "kdewallet=Akonadi Resource,Akonadi-Ressource,Akonadi-Agent,Account Assistant,Kolab E5 RC,Kontact,Akonadi Agent$\r$\n"
+  FileWrite $1 "kontactdefaultwallet=$\r$\n"
   FileWrite $1 "$\r$\n"
   FileWrite $1 "[Wallet]$\r$\n"
   FileWrite $1 "Close When Idle=false$\r$\n"
@@ -283,6 +283,8 @@ call CreateGlobals
   FileWrite $1 "Enabled=true$\r$\n"
   FileWrite $1 "First Use=false$\r$\n"
   FileWrite $1 "Use One Wallet=true$\r$\n"
+  FileWrite $1 "Prompt on Open=false$\r$\n"
+  FileWrite $1 "Leave Open=true$\r$\n"
   FileClose $1
 
   CopyFiles "$INSTDIR\share\kontactdefaultwallet.kwl" "$APPDATA\.kontact\share\apps\kwallet"

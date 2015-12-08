@@ -354,6 +354,8 @@ FunctionEnd
 
 ; Check whether application has already been installed.
 Function CheckExistingVersion
+  ; Read from 64bit version of registry
+  SetRegView 64
   ClearErrors
   Push $0
   ReadRegStr $0 HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${productname_short}" "UninstallString"

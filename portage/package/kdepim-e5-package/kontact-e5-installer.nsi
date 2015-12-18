@@ -117,6 +117,11 @@ Section -Prerequisites
     ExecWait "$INSTDIR\Prerequisites\gpg4win-vanilla-2.2.0.exe"
     Goto endGpg4Win
   endGpg4Win:
+  MessageBox MB_YESNO "Install Visual Studio Redistributable 2010?" /SD IDYES IDNO endVcRedist2010x86
+    File "R:\\Prerequisites\vcredist2010_x86.exe"
+    ExecWait "$INSTDIR\Prerequisites\vcredist2010_x86.exe"
+    Goto endVcRedist2010x86
+  endVcRedist2010x86:
   MessageBox MB_YESNO "Install Visual Studio Redistributable 2013?" /SD IDYES IDNO endVcRedist2013x86
     File "R:\\Prerequisites\vcredist_x86.exe"
     ExecWait "$INSTDIR\Prerequisites\vcredist_x86.exe"

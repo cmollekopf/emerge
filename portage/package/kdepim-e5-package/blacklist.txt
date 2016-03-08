@@ -103,7 +103,7 @@ myisampack\.exe
 myisam_ftdump\.exe
 mysqlbinlog\.exe
 mysqlcheck\.exe
-mysqldump\.exe
+# mysqldump\.exe
 mysqlimport\.exe
 mysqlshow\.exe
 mysqlslap\.exe
@@ -361,7 +361,7 @@ phonon-buildsystem$
 ^svn$
 ^src$
 ^logs$
-^#data$
+^data$
 ^build$
 ^tmp$
 ^msys$

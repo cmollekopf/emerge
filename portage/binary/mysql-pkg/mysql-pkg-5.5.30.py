@@ -39,7 +39,8 @@ class subinfo(info.infoclass):
               self.targetDigests['5.6.16'] = '94fd04dbb92019757ada6c7ea73aa6db827019b4'
               self.targetDigests['5.6.17'] = '5f7a7a2dfd12956c17134345f12785cd56aa3ffc'
               self.targetDigests['5.6.22'] = '94cf9420e55ca4c95b8ff0a5c09ba5b407018e3a'
-              self.targetDigests['5.6.30'] = '38215722c819266aaba8adcc577c3319'
+              self.targetDigests['5.6.30'] = '0bc4c8508852e38dc84e163966713b11286e7e4c'
+              
 
         self.shortDescription = "MySql database server and embedded library"
         self.defaultTarget = '5.6.30'

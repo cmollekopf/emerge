@@ -314,7 +314,7 @@ call CreateGlobals
   ; ${ENVVARUPDATE} $0 "VIRTUOSO_HOME" "A" "HKLM" "$INSTDIR"
 
   ;Register Virtuoso ODBC Driver
-  ExecWait 'regsvr32.exe /s "$INSTDIR\lib\virtodbc.dll"'
+  ;ExecWait 'regsvr32.exe /s "$INSTDIR\lib\virtodbc.dll"'
 
   ; Createpost-install script
   FileOpen $1 "$TEMP\kde-post-install.bat" "w"
@@ -474,7 +474,7 @@ Section "un."
   sleep 3000
 
   ; Unregister Virtuoso
-  ExecWait 'regsvr32.exe /u /s "$INSTDIR\lib\virtodbc.dll"'
+  ;ExecWait 'regsvr32.exe /u /s "$INSTDIR\lib\virtodbc.dll"'
 
   ; Delete installation dir
   RMDir /R "$INSTDIR"

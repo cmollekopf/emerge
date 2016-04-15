@@ -345,6 +345,7 @@ call CreateGlobals
   FileWrite $1 'set PATH="$INSTDIR\bin";%PATH% $\r$\n'
   FileWrite $1 'update-mime-database "$INSTDIR\share\mime" $\r$\n'
   FileWrite $1 'kbuildsycoca4 "--noincremental" $\r$\n'
+  FileWrite $1 'startmysql$\r$\n'
   FileClose $1
 
   ;DetailPrint "Starte Post-Install-Skript"

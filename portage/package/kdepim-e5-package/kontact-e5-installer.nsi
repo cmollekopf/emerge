@@ -238,7 +238,7 @@ Section ""
   ; Create startmysql.bat 
   FileOpen $1 "$INSTDIR\bin\startmysql.bat" "w"
   FileWrite $1 '@echo off $\r$\n'
-  FileWrite $1 '"$INSTDIR\bin\mysqld.exe" --defaults-file=$INSTDIR\\share\\akonadi\\mysql-global.conf --datadir=%APPDATA%\\.kontact\\.local\\share\\akonadi\\db_data\\ --shared-memory'
+  FileWrite $1 '"$INSTDIR\bin\mysqld.exe" --defaults-file="$INSTDIR\\share\\config\\akonadi\\mysql-global.conf" --datadir=%APPDATA%\\.kontact\\.local\\share\\akonadi\\db_data\\ --shared-memory'
   FileClose $1
 
 call CreateGlobals

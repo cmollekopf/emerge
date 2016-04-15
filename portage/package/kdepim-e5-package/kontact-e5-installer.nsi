@@ -159,6 +159,7 @@ Section ""
   WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${productname_short}" "NoRepair" 1
   ; Register autostart of korgac
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Run\" "korgac" '"$PROGRAMFILES\${productname_short}\bin\korgac.exe"'
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Run\" "mysqld" '"$PROGRAMFILES\${productname_short}\bin\startmysql"'
 
   ; Set Path to $PROFILE (default for ShortCut run in option -> default for Kowi file open dialog)
   SetOutPath "%HOMEDRIVE%%HOMEPATH%"
@@ -232,6 +233,12 @@ Section ""
   FileWrite $1 '$INSTDIR\bin\kdeinit4 --terminate'
   FileClose $1
 
+  ; Create startmysql.bat 
+  FileOpen $1 "$INSTDIR\bin\startmysql.bat" "w"
+  FileWrite $1 '@echo off $\r$\n'
+  FileWrite $1 '$INSTDIR\bin\mysqld.exe ----defaults-file=%APPDATA%\\.kontact\\.local\\shared\\akonadi\\mysql.conf --datadir=%APPDATA%\\.kontact\\.local\\share\\akonadi\\db_data\\ --shared-memory'
+  FileClose $1
+
 call CreateGlobals
 
   ; Create kwinstartmenurc (disabled kde start menu) 
@@ -290,6 +297,22 @@ call CreateGlobals
   FileWrite $1 "Use One Wallet=true$\r$\n"
   FileWrite $1 "Prompt on Open=false$\r$\n"
   FileWrite $1 "Leave Open=true$\r$\n"
+  FileClose $1
+
+  CreateDirectory "$APPDATA\.config"
+  CreateDirectory "$APPDATA\.config\akonadi"
+
+  FileOpen $1 "$APPDATA\.kontact\.config\akonadi\akonadiserverrc" "w"
+  FileWrite $1 "[%General]$\r$\n"
+  FileWrite $1 "Driver=QMYSQL$\r$\n"
+  FileWrite $1 "$\r$\n"
+  FileWrite $1 "[QMYSQL]$\r$\n"
+  FileWrite $1 "Name=akonadi$\r$\n"
+  FileWrite $1 "Host=localhost$\r$\n"
+  FileWrite $1 "Options=$\r$\n"
+  FileWrite $1 "StartServer=false$\r$\n"
+  FileWrite $1 "User=akonadi$\r$\n"
+  FileWrite $1 "Password=akonadi$\r$\n"
   FileClose $1
 
   CopyFiles "$INSTDIR\share\kontactdefaultwallet.kwl" "$APPDATA\.kontact\share\apps\kwallet"
@@ -515,6 +538,8 @@ Section "un."
 
   ; Remove korgac from autostart
   DeleteRegValue HKLM "Software\Microsoft\Windows\CurrentVersion\Run\" "korgac"
+
+  DeleteRegValue HKLM "Software\Microsoft\Windows\CurrentVersion\Run\" "mysqld"
 
   ; Delete registry keys (if NO other installation exists)
   ReadRegStr $0 HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${productname_short}" "Displayversion_number"

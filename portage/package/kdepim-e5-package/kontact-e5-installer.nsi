@@ -233,10 +233,12 @@ Section ""
   FileWrite $1 '$INSTDIR\bin\kdeinit4 --terminate'
   FileClose $1
 
+  CreateDirectory "$APPDATA\.kontact\.local\share\akonadi\db_data"
+
   ; Create startmysql.bat 
   FileOpen $1 "$INSTDIR\bin\startmysql.bat" "w"
   FileWrite $1 '@echo off $\r$\n'
-  FileWrite $1 '\"$INSTDIR\bin\mysqld.exe\" --defaults-file=%APPDATA%\\.kontact\\.local\\share\\akonadi\\mysql.conf --datadir=%APPDATA%\\.kontact\\.local\\share\\akonadi\\db_data\\ --shared-memory'
+  FileWrite $1 '"$INSTDIR\bin\mysqld.exe" --defaults-file=$INSTDIR\\share\\akonadi\\mysql-global.conf --datadir=%APPDATA%\\.kontact\\.local\\share\\akonadi\\db_data\\ --shared-memory'
   FileClose $1
 
 call CreateGlobals
@@ -299,8 +301,7 @@ call CreateGlobals
   FileWrite $1 "Leave Open=true$\r$\n"
   FileClose $1
 
-  CreateDirectory "$APPDATA\.config"
-  CreateDirectory "$APPDATA\.config\akonadi"
+  CreateDirectory "$APPDATA\.kontact\.config\akonadi"
 
   FileOpen $1 "$APPDATA\.kontact\.config\akonadi\akonadiserverrc" "w"
   FileWrite $1 "[%General]$\r$\n"
